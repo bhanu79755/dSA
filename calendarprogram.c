@@ -36,14 +36,14 @@ void display(struct day calendar[7])
     for(i=0;i<7;i++)
     {
         printf("%S(date:%d):",calendar[i].dayname,calendar[i].date);
-        puts(calendar[i].activity)
+        puts(calendar[i].activity);
         printf("\n");
     }
 }
 void main()
 {
-    struct day*calendar
-    calendar=(struct day*)calloc(7,size of(struct day));
+    struct day*calendar;
+    calendar=(struct day*)calloc(7,sizeof(struct day));
     int choice;
     while(1)
     {
@@ -52,12 +52,12 @@ void main()
         printf("2.read calendar\n");
         printf("3.display calendar datewise activity\n");
         printf("4.exit\n");
-        printf("*****************************************\n")
-        printf("enter your choice:")
+        printf("*****************************************\n");
+        printf("enter your choice:");
         scanf("%d",&choice);
         switch(choice)
         {
-            case 1:creat(calendar);
+            case 1:create(calendar);
                    break;
             case 2:read(calendar);
                    break;
