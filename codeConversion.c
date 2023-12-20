@@ -5,7 +5,7 @@ char s[10];
 int top=-1;
 void main()
 {
-    void push(char);
+    void push();
     char pop();
     void convert();
     int pri(char ch);
@@ -24,13 +24,13 @@ char pop()
 int pri(char ch)
 {
     if(ch=='('||ch=='#')
-    return 1;
+       return 1;
     if(ch=='+'||ch=='-')
-    return 2;
-    if(ch=='*'||ch=='%')
-    return 3;
+       return 2;
+    if(ch=='*'||ch=='/'||ch='%')
+       return 3;
     if(ch=='^')
-    return 4;
+      return 4;
     return 0;
 }
 void convert()
@@ -43,20 +43,27 @@ void convert()
           postfix[j++]=infix[i];
         else if(infix[i]=='(')
           push(infix[i]);
-        else if(infix[i]==')')
-        {
+        else if (infix[i]==')')
+          {
             while(s[top]!='(')
               postfix[j++]=pop();
-             pop();
-        }
-        else{
-            while(pri(s[top])>=pri(infix[i]))
-            postfix[j++]=pop();
+            pop();
+          }
+          else
+          {
+            while (pri(s[top])>=pri(infix[i]))
+              postfix[j++]=pop();
             push(infix[i]);
-        }
+            
+            }
     }
+            
+          
     while(s[top]!='#')
-    postfix[j++]=pop();
+     postfix[j++]=pop();
     postfix[j]='\0';
     printf("postfix expression===>%s",postfix);
-    }
+
+    
+}
+
