@@ -1,11 +1,13 @@
 #include<stdio.h>
 #include<string.h>
+#include<ctype.h>
 char infix[50],postfix[50];
 char s[10];
 int top=-1;
 void main()
 {
     void push();
+    void push(char);
     char pop();
     void convert();
     int pri(char ch);
@@ -27,7 +29,7 @@ int pri(char ch)
        return 1;
     if(ch=='+'||ch=='-')
        return 2;
-    if(ch=='*'||ch=='/'||ch='%')
+    if(ch=='*'||ch=='/'||ch=='%')
        return 3;
     if(ch=='^')
       return 4;
